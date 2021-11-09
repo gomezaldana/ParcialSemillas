@@ -1,4 +1,4 @@
-import PLANTAS.*
+import plantas.*
 
 class Parcela{
 	const property ancho
@@ -6,8 +6,8 @@ class Parcela{
 	const property plantas=[]
 	const property horasSol
 	method superficie()= ancho*largo
-	method plantasQueTolera()=if(ancho>largo){superficie/5} else {self.superficie()/3+largo} 
-	method tieneComplicaciones()=plantas.any(){(p=>p.toleraAlSol()<horasSol)}
+	method plantasQueTolera()=if(ancho>largo){self.superficie()/5} else {self.superficie()/3+largo} 
+	method tieneComplicaciones()=plantas.any(){(p=>p.toleraAlSol()<horasSol)}//fijate si va el and
 	method cantidadPlantasQueHay()=plantas.size()
 	method hayEspacioParaAgregar()=self.cantidadPlantasQueHay+1<=self.plantasQueTolera()
 	method recibeMasSolDeLoQueTolera(planta)//no se hacerlo=planta.toleraAlSol()<horasSol+2
@@ -21,4 +21,6 @@ class Parcela{
 	}
 	method esEcologica()=not self.tieneComplicaciones()
 	method esIndustrual()=self.cantidadPlantasQueHay()<=2
+	method tieneMasDeCuatroPlantas()=self.cantidadPlantasQueHay()>4
+	method porcentajeBienAsociadas()=(plantas.count({p=>p.esIdealParaAsociar(self)})/self.cantidadPlantasQueHay()
 }

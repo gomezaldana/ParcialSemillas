@@ -1,4 +1,4 @@
-import PARCELAS.*
+import parcelas.*
 class Planta{
 	const property anioDeObtencion //cuando se crea
 	const property altura //cuando se crea
@@ -6,10 +6,8 @@ class Planta{
 	const property esFuerte = self.toleraAlSol()>10//para todos
 	const property daSemillas =self.esFuerte() //or //condición alternativa
 	const property espacioQueOcupa//depende especie
-	method esIdealPara(parcela,planta){
-		if (parcela.esEcologica() and planta.esIdealPara(parcela,self) or 
-	}
-	
+	method esIdealPara(parcela)
+	method esIdealParaAsociar(parcela)=(parcela.esEcologica() and self.esIdealPara(parcela)) or (self.esFuerte() and parcela.esIndustrial())
 	
 }
 
@@ -37,17 +35,16 @@ class Quinoa inherits Planta{
 	override method esIdealPara(parcela)=parcela.plantas().all{p=>p.altura()<1.5}
 }
 
-class sojaTransgenica inherits Soja{
+class SojaTransgenica inherits Soja{
 	override method daSemillas()=false
 	override method esIdealPara(parcela)=parcela.plantasQueTolera()==1
  
 }	
 	
-class hierbabuena inherits Menta{	
+class Hierbabuena inherits Menta{	
 	override method espacioQueOcupa()=super()*2
 
 }
-//self.error("no se puede plantar")
 //assert.throwsExceptionWithMessage
 	
 	
