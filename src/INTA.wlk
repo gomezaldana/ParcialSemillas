@@ -1,4 +1,5 @@
 import parcelas.*
+import plantas.*
 object inta{
 	const property parcelas=#{}
 	method promedioPlantas()=parcelas.sum({p=>p.cantidadPlantasQueHay()})/parcelas.size()

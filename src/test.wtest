@@ -1,0 +1,48 @@
+import parcelas.*
+import plantas.*
+import INTA.*
+
+describe "tests"{
+	const soja1 = new Soja(anioDeObtencion=2009 , altura= 0.6)
+	const menta1 = new Menta(anioDeObtencion=2019,altura=1)
+	const quinoa1 = new Quinoa (anioDeObtencion=2010 , altura=12 , toleraAlSol=12)
+	const quinoa2 = new Quinoa (anioDeObtencion=2001 , altura=12 , toleraAlSol=9)
+	const soja2 = new SojaTransgenica(anioDeObtencion=2009 , altura= 0.6)
+	const HB = new Hierbabuena(anioDeObtencion=2009 , altura= 1)
+		
+	test "soja"{
+		assert.notThat(soja1.daSemillas())
+		assert.equals(7,soja1.toleraAlSol())
+		assert.equals(0.3,soja1.espacioQueOcupa())
+	}
+	
+	test "quinoa"{
+		assert.that(quinoa1.daSemillas())
+		assert.that(quinoa2.daSemillas())
+	}
+	
+	test "menta"{
+		assert.that(menta1.daSemillas())
+		assert.equals(3,menta1.espacioQueOcupa())
+	}	
+	
+	test "soja transgenica"{
+		assert.notThat(soja2.daSemillas())
+	}	
+	
+	test "hierba"{
+		assert.equals(6,HB.espacioQueOcupa())
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+

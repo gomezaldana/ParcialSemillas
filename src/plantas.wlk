@@ -1,10 +1,10 @@
 import parcelas.*
 class Planta{
-	const property anioDeObtencion //cuando se crea
-	const property altura //cuando se crea
-	var property toleraAlSol//depende exclusivamente de cada especie
-	const property esFuerte = self.toleraAlSol()>10//para todos
-	const property daSemillas =self.esFuerte() //or //condición alternativa
+	const property anioDeObtencion 
+	const property altura
+	var property toleraAlSol
+	const property esFuerte = self.toleraAlSol()>10
+	const property daSemillas =self.esFuerte() 
 	const property espacioQueOcupa//depende especie
 	method esIdealPara(parcela)
 	method esIdealParaAsociar(parcela)=(parcela.esEcologica() and self.esIdealPara(parcela)) or (self.esFuerte() and parcela.esIndustrial())
