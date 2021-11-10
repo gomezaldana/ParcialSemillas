@@ -5,7 +5,7 @@ import INTA.*
 
 describe "tests"{
 	const p1 = new Parcela(ancho=20 , largo= 1,horasSol=8)
-	const s1 = new Soja(anioDeObtencion=2009 , altura= 2)
+	const s1 = new Soja(anioDeObtencion=2009 , altura= 1)
 	const s2 = new Soja(anioDeObtencion=2009 , altura= 2)
 	const s3 = new Soja(anioDeObtencion=2009 , altura= 2)
 	const s4 = new Soja(anioDeObtencion=2009 , altura= 2)
