@@ -1,0 +1,23 @@
+import parcelas.*
+import plantas.*
+import INTA.*
+
+
+describe "tests"{
+	const p1 = new Parcela(ancho=20 , largo= 1,horasSol=8)
+	const s1 = new Soja(anioDeObtencion=2009 , altura= 2)
+	const s2 = new Soja(anioDeObtencion=2009 , altura= 2)
+	const s3 = new Soja(anioDeObtencion=2009 , altura= 2)
+	const s4 = new Soja(anioDeObtencion=2009 , altura= 2)
+	const s5 = new Soja(anioDeObtencion=2009 , altura= 2)
+	const p2 = new Parcela(ancho=20 , largo= 1,horasSol=8)
+	
+	
+	test "parcela"{
+		assert.equals(4,p1.plantasQueTolera())
+		p1.plantarPlanta(s1)
+
+	}
+
+	
+}

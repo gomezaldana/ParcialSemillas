@@ -2,10 +2,10 @@ import parcelas.*
 class Planta{
 	const property anioDeObtencion 
 	const property altura
-	var property toleraAlSol
+	var property toleraAlSol=0
 	const property esFuerte = self.toleraAlSol()>10
 	const property daSemillas =self.esFuerte() 
-	const property espacioQueOcupa//depende especie
+	const property espacioQueOcupa=0
 	method esIdealPara(parcela)
 	method esIdealParaAsociar(parcela)=(parcela.esEcologica() and self.esIdealPara(parcela)) or (self.esFuerte() and parcela.esIndustrial())
 	
@@ -13,7 +13,7 @@ class Planta{
 
 class Menta inherits Planta{
 	override method toleraAlSol()=6//no se si esta bien
-	override method daSemillas()=super() or self.altura()>0.4//su altura es mayor a 0.4 metros.
+	override method daSemillas()=super() or self.altura()>0.4
 	override method espacioQueOcupa()=self.altura()*3
 	override method esIdealPara(parcela)=parcela.superficie()>6
 }
@@ -25,7 +25,7 @@ class Soja inherits Planta{
 		else {return 9}
 	}
 	override method daSemillas()=super() or (self.anioDeObtencion()>2007 and self.altura()>1)
-	override method espacioQueOcupa()=self.altura()/2//fijate si se divide asi
+	override method espacioQueOcupa()=self.altura()/2
 	override method esIdealPara(parcela)=parcela.horasSol()==self.toleraAlSol()
 }
 
@@ -45,7 +45,6 @@ class Hierbabuena inherits Menta{
 	override method espacioQueOcupa()=super()*2
 
 }
-//assert.throwsExceptionWithMessage
 	
 	
 

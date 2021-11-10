@@ -7,16 +7,16 @@ class Parcela{
 	const property horasSol
 	method superficie()= ancho*largo
 	method plantasQueTolera()=if(ancho>largo){self.superficie()/5} else {self.superficie()/3+largo} 
-	method tieneComplicaciones()=plantas.any(){(p=>p.toleraAlSol()<horasSol)}//fijate si va el and
+	method tieneComplicaciones()=plantas.any(){p=>p.toleraAlSol()<self.horasSol()}//fijate si va el and
 	method cantidadPlantasQueHay()=plantas.size()
-	method hayEspacioParaAgregar()=self.cantidadPlantasQueHay+1<=self.plantasQueTolera()
+	method hayEspacioParaAgregar()=self.cantidadPlantasQueHay()+1<=self.plantasQueTolera()
 	method recibeMasSolDeLoQueTolera(planta)//no se hacerlo=planta.toleraAlSol()<horasSol+2
 	method plantarPlanta(planta){
 		if (self.recibeMasSolDeLoQueTolera(planta) or not self.hayEspacioParaAgregar()){
 			self.error("no se puede plantar")
 		}
 		else{
-			plantas.add(planta)	
+			plantas.add(planta)
 		}
 	}
 	method esEcologica()=not self.tieneComplicaciones()
