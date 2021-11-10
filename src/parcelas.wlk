@@ -22,5 +22,5 @@ class Parcela{
 	method esEcologica()=not self.tieneComplicaciones()
 	method esIndustrual()=self.cantidadPlantasQueHay()<=2
 	method tieneMasDeCuatroPlantas()=self.cantidadPlantasQueHay()>4
-	method porcentajeBienAsociadas()=(plantas.count({p=>p.esIdealParaAsociar(self)})/self.cantidadPlantasQueHay()
+	method porcentajeBienAsociadas()=(plantas.count({p=>p.esIdealParaAsociar(self)})/self.cantidadPlantasQueHay())
 }
